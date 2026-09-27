@@ -1,0 +1,654 @@
+{
+  "totals": {
+    "revenue": 19642676.02,
+    "units": 11187773,
+    "invoices": 39516,
+    "products": 4877,
+    "customers": 5852,
+    "main_market": "United Kingdom"
+  },
+  "markets": [
+    {
+      "name": "United Kingdom",
+      "revenue": 16799833.77
+    },
+    {
+      "name": "EIRE",
+      "revenue": 623414.16
+    },
+    {
+      "name": "Netherlands",
+      "revenue": 549773.41
+    },
+    {
+      "name": "Germany",
+      "revenue": 383289.0
+    },
+    {
+      "name": "France",
+      "revenue": 311090.29
+    },
+    {
+      "name": "Australia",
+      "revenue": 167800.01
+    },
+    {
+      "name": "Spain",
+      "revenue": 97766.75
+    },
+    {
+      "name": "Other",
+      "revenue": 709708.63
+    }
+  ],
+  "best_months": [
+    {
+      "month": "Jan",
+      "revenue": 1282633.19
+    },
+    {
+      "month": "Feb",
+      "revenue": 1045676.96
+    },
+    {
+      "month": "Mar",
+      "revenue": 1451374.11
+    },
+    {
+      "month": "Apr",
+      "revenue": 1161587.96
+    },
+    {
+      "month": "May",
+      "revenue": 1383388.63
+    },
+    {
+      "month": "Jun",
+      "revenue": 1433998.45
+    },
+    {
+      "month": "Jul",
+      "revenue": 1321112.17
+    },
+    {
+      "month": "Aug",
+      "revenue": 1398233.63
+    },
+    {
+      "month": "Sep",
+      "revenue": 1897538.24
+    },
+    {
+      "month": "Oct",
+      "revenue": 2197668.64
+    },
+    {
+      "month": "Nov",
+      "revenue": 2881666.16
+    },
+    {
+      "month": "Dec",
+      "revenue": 2187797.88
+    }
+  ],
+  "total_weekly": [
+    {
+      "date": "2009-12-07",
+      "sales": 116246
+    },
+    {
+      "date": "2009-12-14",
+      "sales": 136238
+    },
+    {
+      "date": "2009-12-21",
+      "sales": 27786
+    },
+    {
+      "date": "2009-12-28",
+      "sales": 0
+    },
+    {
+      "date": "2010-01-04",
+      "sales": 96054
+    },
+    {
+      "date": "2010-01-11",
+      "sales": 76111
+    },
+    {
+      "date": "2010-01-18",
+      "sales": 135351
+    },
+    {
+      "date": "2010-01-25",
+      "sales": 82892
+    },
+    {
+      "date": "2010-02-01",
+      "sales": 64894
+    },
+    {
+      "date": "2010-02-08",
+      "sales": 50764
+    },
+    {
+      "date": "2010-02-15",
+      "sales": 176107
+    },
+    {
+      "date": "2010-02-22",
+      "sales": 89854
+    },
+    {
+      "date": "2010-03-01",
+      "sales": 101350
+    },
+    {
+      "date": "2010-03-08",
+      "sales": 75924
+    },
+    {
+      "date": "2010-03-15",
+      "sales": 155858
+    },
+    {
+      "date": "2010-03-22",
+      "sales": 133890
+    },
+    {
+      "date": "2010-03-29",
+      "sales": 75189
+    },
+    {
+      "date": "2010-04-05",
+      "sales": 83958
+    },
+    {
+      "date": "2010-04-12",
+      "sales": 82072
+    },
+    {
+      "date": "2010-04-19",
+      "sales": 86137
+    },
+    {
+      "date": "2010-04-26",
+      "sales": 103002
+    },
+    {
+      "date": "2010-05-03",
+      "sales": 92765
+    },
+    {
+      "date": "2010-05-10",
+      "sales": 107589
+    },
+    {
+      "date": "2010-05-17",
+      "sales": 85401
+    },
+    {
+      "date": "2010-05-24",
+      "sales": 103387
+    },
+    {
+      "date": "2010-05-31",
+      "sales": 59884
+    },
+    {
+      "date": "2010-06-07",
+      "sales": 122795
+    },
+    {
+      "date": "2010-06-14",
+      "sales": 81759
+    },
+    {
+      "date": "2010-06-21",
+      "sales": 65337
+    },
+    {
+      "date": "2010-06-28",
+      "sales": 106881
+    },
+    {
+      "date": "2010-07-05",
+      "sales": 74850
+    },
+    {
+      "date": "2010-07-12",
+      "sales": 84871
+    },
+    {
+      "date": "2010-07-19",
+      "sales": 82519
+    },
+    {
+      "date": "2010-07-26",
+      "sales": 74522
+    },
+    {
+      "date": "2010-08-02",
+      "sales": 74759
+    },
+    {
+      "date": "2010-08-09",
+      "sales": 182127
+    },
+    {
+      "date": "2010-08-16",
+      "sales": 107663
+    },
+    {
+      "date": "2010-08-23",
+      "sales": 83551
+    },
+    {
+      "date": "2010-08-30",
+      "sales": 87421
+    },
+    {
+      "date": "2010-09-06",
+      "sales": 74977
+    },
+    {
+      "date": "2010-09-13",
+      "sales": 101110
+    },
+    {
+      "date": "2010-09-20",
+      "sales": 139384
+    },
+    {
+      "date": "2010-09-27",
+      "sales": 237160
+    },
+    {
+      "date": "2010-10-04",
+      "sales": 164070
+    },
+    {
+      "date": "2010-10-11",
+      "sales": 172857
+    },
+    {
+      "date": "2010-10-18",
+      "sales": 127249
+    },
+    {
+      "date": "2010-10-25",
+      "sales": 112783
+    },
+    {
+      "date": "2010-11-01",
+      "sales": 162943
+    },
+    {
+      "date": "2010-11-08",
+      "sales": 177738
+    },
+    {
+      "date": "2010-11-15",
+      "sales": 170244
+    },
+    {
+      "date": "2010-11-22",
+      "sales": 146888
+    },
+    {
+      "date": "2010-11-29",
+      "sales": 156782
+    },
+    {
+      "date": "2010-12-06",
+      "sales": 121081
+    },
+    {
+      "date": "2010-12-13",
+      "sales": 106800
+    },
+    {
+      "date": "2010-12-20",
+      "sales": 39273
+    },
+    {
+      "date": "2010-12-27",
+      "sales": 0
+    },
+    {
+      "date": "2011-01-03",
+      "sales": 76739
+    },
+    {
+      "date": "2011-01-10",
+      "sales": 89207
+    },
+    {
+      "date": "2011-01-17",
+      "sales": 144564
+    },
+    {
+      "date": "2011-01-24",
+      "sales": 62847
+    },
+    {
+      "date": "2011-01-31",
+      "sales": 69283
+    },
+    {
+      "date": "2011-02-07",
+      "sales": 51441
+    },
+    {
+      "date": "2011-02-14",
+      "sales": 81070
+    },
+    {
+      "date": "2011-02-21",
+      "sales": 84371
+    },
+    {
+      "date": "2011-02-28",
+      "sales": 69204
+    },
+    {
+      "date": "2011-03-07",
+      "sales": 69142
+    },
+    {
+      "date": "2011-03-14",
+      "sales": 87407
+    },
+    {
+      "date": "2011-03-21",
+      "sales": 77815
+    },
+    {
+      "date": "2011-03-28",
+      "sales": 106513
+    },
+    {
+      "date": "2011-04-04",
+      "sales": 67768
+    },
+    {
+      "date": "2011-04-11",
+      "sales": 87341
+    },
+    {
+      "date": "2011-04-18",
+      "sales": 80783
+    },
+    {
+      "date": "2011-04-25",
+      "sales": 51460
+    },
+    {
+      "date": "2011-05-02",
+      "sales": 77745
+    },
+    {
+      "date": "2011-05-09",
+      "sales": 109829
+    },
+    {
+      "date": "2011-05-16",
+      "sales": 107829
+    },
+    {
+      "date": "2011-05-23",
+      "sales": 83730
+    },
+    {
+      "date": "2011-05-30",
+      "sales": 58272
+    },
+    {
+      "date": "2011-06-06",
+      "sales": 97722
+    },
+    {
+      "date": "2011-06-13",
+      "sales": 103279
+    },
+    {
+      "date": "2011-06-20",
+      "sales": 74918
+    },
+    {
+      "date": "2011-06-27",
+      "sales": 76356
+    },
+    {
+      "date": "2011-07-04",
+      "sales": 92913
+    },
+    {
+      "date": "2011-07-11",
+      "sales": 81074
+    },
+    {
+      "date": "2011-07-18",
+      "sales": 109686
+    },
+    {
+      "date": "2011-07-25",
+      "sales": 104869
+    },
+    {
+      "date": "2011-08-01",
+      "sales": 102875
+    },
+    {
+      "date": "2011-08-08",
+      "sales": 98333
+    },
+    {
+      "date": "2011-08-15",
+      "sales": 99703
+    },
+    {
+      "date": "2011-08-22",
+      "sales": 97140
+    },
+    {
+      "date": "2011-08-29",
+      "sales": 79670
+    },
+    {
+      "date": "2011-09-05",
+      "sales": 109779
+    },
+    {
+      "date": "2011-09-12",
+      "sales": 120748
+    },
+    {
+      "date": "2011-09-19",
+      "sales": 169377
+    },
+    {
+      "date": "2011-09-26",
+      "sales": 120094
+    },
+    {
+      "date": "2011-10-03",
+      "sales": 170875
+    },
+    {
+      "date": "2011-10-10",
+      "sales": 117536
+    },
+    {
+      "date": "2011-10-17",
+      "sales": 152266
+    },
+    {
+      "date": "2011-10-24",
+      "sales": 149053
+    },
+    {
+      "date": "2011-10-31",
+      "sales": 158183
+    },
+    {
+      "date": "2011-11-07",
+      "sales": 182194
+    },
+    {
+      "date": "2011-11-14",
+      "sales": 184888
+    },
+    {
+      "date": "2011-11-21",
+      "sales": 154803
+    },
+    {
+      "date": "2011-11-28",
+      "sales": 156349
+    }
+  ],
+  "product_table": [
+    {
+      "series_id": "22423",
+      "description": "Regency Cakestand 3 Tier",
+      "units": 26478,
+      "revenue": 330590.32,
+      "avg_price": 14.19
+    },
+    {
+      "series_id": "85123A",
+      "description": "White Hanging Heart T-Light Holder",
+      "units": 94203,
+      "revenue": 257724.71,
+      "avg_price": 3.08
+    },
+    {
+      "series_id": "85099B",
+      "description": "Jumbo Bag Red Retrospot",
+      "units": 96757,
+      "revenue": 180569.34,
+      "avg_price": 2.33
+    },
+    {
+      "series_id": "47566",
+      "description": "Party Bunting",
+      "units": 28200,
+      "revenue": 148318.28,
+      "avg_price": 5.72
+    },
+    {
+      "series_id": "84879",
+      "description": "Assorted Colour Bird Ornament",
+      "units": 80082,
+      "revenue": 129324.49,
+      "avg_price": 1.86
+    },
+    {
+      "series_id": "48138",
+      "description": "Doormat Union Flag",
+      "units": 10077,
+      "revenue": 67010.31,
+      "avg_price": 8.03
+    },
+    {
+      "series_id": "21621",
+      "description": "Vintage Union Jack Bunting",
+      "units": 6900,
+      "revenue": 60286.04,
+      "avg_price": 9.31
+    },
+    {
+      "series_id": "21843",
+      "description": "Red Retrospot Cake Stand",
+      "units": 6128,
+      "revenue": 64918.3,
+      "avg_price": 12.24
+    },
+    {
+      "series_id": "20685",
+      "description": "Doormat Red Retrospot",
+      "units": 9783,
+      "revenue": 66417.47,
+      "avg_price": 8.4
+    },
+    {
+      "series_id": "20725",
+      "description": "Lunch Bag Red Retrospot",
+      "units": 40317,
+      "revenue": 71106.29,
+      "avg_price": 2.05
+    },
+    {
+      "series_id": "85099F",
+      "description": "Jumbo Bag Strawberry",
+      "units": 36860,
+      "revenue": 67985.77,
+      "avg_price": 2.29
+    },
+    {
+      "series_id": "22386",
+      "description": "Jumbo Bag Pink Polkadot",
+      "units": 39437,
+      "revenue": 76324.62,
+      "avg_price": 2.41
+    },
+    {
+      "series_id": "79321",
+      "description": "Chilli Lights",
+      "units": 15841,
+      "revenue": 80540.88,
+      "avg_price": 6.29
+    },
+    {
+      "series_id": "22197",
+      "description": "Small Popcorn Holder",
+      "units": 88499,
+      "revenue": 79520.2,
+      "avg_price": 1.03
+    },
+    {
+      "series_id": "21931",
+      "description": "Jumbo Storage Bag Suki",
+      "units": 29182,
+      "revenue": 61537.55,
+      "avg_price": 2.53
+    },
+    {
+      "series_id": "85099C",
+      "description": "Jumbo  Bag Baroque Black White",
+      "units": 30640,
+      "revenue": 59057.61,
+      "avg_price": 2.41
+    },
+    {
+      "series_id": "15056N",
+      "description": "Edwardian Parasol Natural",
+      "units": 11286,
+      "revenue": 57975.45,
+      "avg_price": 6.82
+    },
+    {
+      "series_id": "21212",
+      "description": "Pack Of 72 Retrospot Cake Cases",
+      "units": 94884,
+      "revenue": 51825.15,
+      "avg_price": 0.71
+    },
+    {
+      "series_id": "20914",
+      "description": "Set/5 Red Retrospot Lid Glass Bowls",
+      "units": 18670,
+      "revenue": 52508.56,
+      "avg_price": 3.23
+    },
+    {
+      "series_id": "22411",
+      "description": "Jumbo Shopper Vintage Red Paisley",
+      "units": 27281,
+      "revenue": 57318.71,
+      "avg_price": 2.45
+    }
+  ]
+}

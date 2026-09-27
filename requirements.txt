@@ -1,0 +1,12 @@
+# Analysis and data preparation
+numpy
+pandas>=2.2
+pyarrow
+openpyxl
+matplotlib
+scipy
+
+# Forecasting and the local dashboard API
+tensorflow
+statsforecast
+flask
