@@ -1,0 +1,14 @@
+-- Create these individually using Modeling > New measure.
+-- Rename the imported sales_cleaned table to Sales first.
+
+Total Revenue = SUM(Sales[Revenue])
+
+Total Units = SUM(Sales[Quantity])
+
+Total Orders = DISTINCTCOUNT(Sales[InvoiceNo])
+
+Products Sold = DISTINCTCOUNT(Sales[StockCode])
+
+Average Order Value = DIVIDE([Total Revenue], [Total Orders])
+
+Transaction Rows = COUNTROWS(Sales)

@@ -1,31 +1,61 @@
 # E-commerce Sales Analytics & LSTM Forecasting
 
-A Python data analytics project that turns over one million retail transaction records into cleaned weekly sales data, interactive business insights, and four-week product demand forecasts.
+A sales analytics project using **Python and Power BI** to process over one million retail transactions, build an interactive business intelligence report, and forecast product demand with LSTM.
 
-**Focus:** data cleaning · exploratory data analysis · time-series preparation · data visualization · LSTM forecasting.
+**Focus:** Power BI · data processing and analysis · data modeling · DAX · interactive visualization · LSTM forecasting.
 
-![Sales overview dashboard](docs/images/dashboard.png)
+[Download the Power BI report](powerbi/Ecommerce%20Sales%20Analytics.pbix) · [Power BI documentation](powerbi/README.md) · [DAX measures](powerbi/measures.dax)
 
 ## What this project demonstrates
 
 | Area | Implementation |
 | --- | --- |
 | Data cleaning | Combine two Excel sheets, remove duplicates and cancellations, validate quantities and prices, and filter non-product codes with regular expressions. |
+| Power BI | Build a sales overview report with KPI cards, monthly sales trends, revenue by country, Top 10 products, product-name tooltips, and a date-range slicer. |
+| Power Query | Import CSV data, promote headers, and configure identifier, date, integer, and currency types. |
+| Data modeling | Connect the Sales fact table to Products and calendar dimensions using active one-to-many relationships and single-direction filtering. |
+| DAX | Calculate revenue, units sold, distinct orders, average order value, product count, and transaction row count. |
 | Data preparation | Aggregate transactions by product and week, fill missing sales periods, rank products by training-period revenue, and filter sparse series. |
 | Exploratory analysis | Analyze weekly sales, Christmas seasonality, revenue by market, monthly performance, product rankings, and price versus volume. |
 | Visualization | Interactive charts, a sortable and searchable product table, CSV export, and actual-versus-predicted sales charts. |
 | Forecasting | Train one stacked LSTM across 20 products using a 12-week history window, calendar features, and product embeddings to predict the next four weeks. |
 | Evaluation | Compare LSTM with AutoARIMA, historical average, last-value, and seasonal-naive forecasts on the same rolling test windows. |
 
-The source dataset has **no product categories**. Product grouping uses stock codes; this project does not claim a product-category classification model.
+## Power BI sales report
+
+Open [`powerbi/Ecommerce Sales Analytics.pbix`](powerbi/Ecommerce%20Sales%20Analytics.pbix) in Power BI Desktop. The saved report includes its imported sales data and semantic model.
+
+The report analyzes **1,003,213 cleaned transaction lines** and includes:
+
+- Revenue, order count, average order value, and units sold cards.
+- Monthly revenue trends using the calendar dimension.
+- Country revenue analysis and Top 10 product rankings.
+- Product names in chart tooltips.
+- Date-range filtering and interactions between visuals.
+- A transaction-count card for data reconciliation.
+
+![Power BI sales data model](docs/images/powerbi-model.png)
+
+| Full-period metric | Value |
+| --- | ---: |
+| Revenue | £19,642,676.02 |
+| Units sold | 11,187,773 |
+| Orders | 39,516 |
+| Average order value | £497.08 |
+| Products | 4,707 |
+
+Product keys are standardized to uppercase for Power BI's case-insensitive data model. The source contains 4,877 distinct case-sensitive code spellings; normalization resolves 170 repeated keys while preserving every sales transaction.
+
+See [`powerbi/README.md`](powerbi/README.md) for the model, measures, and data refresh instructions. The extracted [`report definitions`](powerbi/report-definition/) make visual configurations, field bindings, sorting, and filters inspectable on GitHub.
 
 ## Data pipeline
 
 ```text
 Online Retail II (Excel)
     -> deduplication and transaction validation
-    -> product filtering and weekly aggregation
-    -> exploratory analysis and dashboard summaries
+    -> product filtering and validated sales records
+    -> Power BI fact and dimension tables -> DAX metrics -> interactive sales report
+    -> weekly aggregation and exploratory analysis
     -> time-series windows and LSTM forecasts
     -> interactive charts and inventory what-if scenarios
 ```
@@ -35,11 +65,14 @@ The original run processes **1,067,371 transaction rows**, removes **34,335 exac
 ## Technology
 
 - **Analysis and preparation:** Python, pandas, NumPy, regular expressions, OpenPyXL, Parquet.
-- **Visualization:** Matplotlib for offline figures; Recharts for interactive charts.
+- **Business intelligence:** Power BI Desktop, Power Query, DAX, fact and dimension modeling, interactive report filtering.
+- **Visualization:** Power BI charts and KPI cards, Matplotlib for analysis figures, Recharts for web charts.
 - **Forecasting:** TensorFlow/Keras LSTM; StatsForecast for AutoARIMA and baseline comparisons.
 - **Demo application:** React, Flask REST API, and SQLite for local demo accounts.
 
 ## Dashboard examples
+
+![Sales overview dashboard](docs/images/dashboard.png)
 
 ### Revenue and market analysis
 
@@ -49,7 +82,7 @@ The original run processes **1,067,371 transaction rows**, removes **34,335 exac
 
 ![Four-week forecast with observed sales](docs/images/forecast.png)
 
-The dashboard also includes price-volume exploration and inventory scenarios. Inventory is **simulated**, because the source dataset contains no stock records. Discount responses use an estimated or assumed elasticity; they are exploratory scenarios, not causal estimates from the LSTM.
+The web dashboard also includes price-volume exploration and inventory scenarios using simulated stock and elasticity-based demand adjustments.
 
 ## Run the local demo
 
@@ -76,19 +109,20 @@ python -m src.backend.app
 npm --prefix frontend run dev
 ```
 
-Open **http://localhost:5173**. The local demo account is **admin / admin123**. These are public demo credentials, not production credentials. The app seeds a new local account database on first use; no existing account database is included. Keep this demonstration local. For any later deployment, replace the demo credentials and configure `FYP_SECRET_KEY` and `FYP_ADMIN_CODE`.
+Open **http://localhost:5173**. The local demo account is **admin / admin123**. The app creates its local account database on first use. Deployment configuration uses `FYP_SECRET_KEY` and `FYP_ADMIN_CODE`; configure these and replace the demo credentials for a hosted instance.
 
 On the prediction page, choose a bundled example or upload a CSV from `data/processed/examples/`:
 
 - **Validation:** held-out historical weeks with actual sales displayed.
 - **Future:** the weeks after the recorded dataset, with no observed outcomes.
 
-Uploads must contain one known product's consecutive weekly history in the supplied format. The model does not support arbitrary datasets or unseen products. Runtime forecasting uses the saved model; it does not train on uploaded data.
+Forecast inputs use consecutive weekly history for one of the 20 supported products. Runtime forecasting loads the saved model and performs inference.
 
 ## Explore the code
 
 | Path | Purpose |
 | --- | --- |
+| [`powerbi/`](powerbi/) | Saved Power BI report, DAX measures, report definitions, and data preparation script. |
 | [`src/data/adapter.py`](src/data/adapter.py) | Cleaning, validation, product selection, weekly aggregation, and gap filling. |
 | [`src/data/eda_aggregates.py`](src/data/eda_aggregates.py) | Revenue, market, month, and product summaries for the dashboard. |
 | [`src/predictive/features.py`](src/predictive/features.py) | Shared calendar features and model history length. |
@@ -113,12 +147,12 @@ python -m src.data.eda_aggregates
 python -m src.data.make_examples
 ```
 
-Training time and results depend on the environment. The saved comparison in [`results/comparison_models.csv`](results/comparison_models.csv) comes from the original experiment: LSTM RMSE **363.38** and AutoARIMA RMSE **366.67**, while AutoARIMA has lower MAE (**186.95** versus **202.23**). The comparison does not establish consistent LSTM superiority.
+The saved comparison in [`results/comparison_models.csv`](results/comparison_models.csv) records LSTM RMSE **363.38** and AutoARIMA RMSE **366.67**; their MAE values are **202.23** and **186.95**, respectively.
 
-The LSTM includes Monte Carlo Dropout and a validation-residual adjustment for forecast bands. This is an implementation of existing methods, not a claim of a new forecasting algorithm.
+The LSTM uses Monte Carlo Dropout and a validation-residual adjustment to produce forecast bands.
 
 ## Data attribution
 
 Chen, D. (2012). *Online Retail II* [Dataset]. UCI Machine Learning Repository. [DOI: 10.24432/C5CG6D](https://doi.org/10.24432/C5CG6D).
 
-The source dataset is distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Bundled data are cleaned and aggregated derivatives; they contain product/week summaries, not individual customer or invoice records. See [`demo/README.md`](demo/README.md) for the transformations and artifact details.
+The source dataset is distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The Power BI report contains cleaned transaction data derived from this public dataset. The Python demo bundle contains aggregated product/week data and model artifacts. See [`powerbi/README.md`](powerbi/README.md) and [`demo/README.md`](demo/README.md) for the transformations.
