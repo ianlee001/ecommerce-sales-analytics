@@ -1,63 +1,31 @@
 # E-commerce Sales Analytics & LSTM Forecasting
 
-A sales analytics project using **Python and Power BI** to process over one million retail transactions, build an interactive business intelligence report, and forecast product demand with LSTM.
+A Python e-commerce sales analytics project that processes over one million retail transactions through data cleaning, product-level aggregation, exploratory analysis, visualization, and LSTM demand forecasting.
 
-**Focus:** Power BI · data processing and analysis · data modeling · DAX · interactive visualization · LSTM forecasting.
+**Focus:** data cleaning and preparation · exploratory data analysis · data visualization · LSTM forecasting.
 
-[Download the Power BI report](powerbi/Ecommerce%20Sales%20Analytics.pbix) · [Power BI documentation](powerbi/README.md) · [DAX measures](powerbi/measures.dax)
+![Whole-shop weekly sales analysis](results/fig_eda_total_sales.png)
 
 ## What this project demonstrates
 
 | Area | Implementation |
 | --- | --- |
 | Data cleaning | Combine two Excel sheets, remove duplicates and cancellations, validate quantities and prices, and filter non-product codes with regular expressions. |
-| Power BI | Build a sales overview report with KPI cards, monthly sales trends, revenue by country, Top 10 products, product-name tooltips, and a date-range slicer. |
-| Power Query | Import CSV data, promote headers, and configure identifier, date, integer, and currency types. |
-| Data modeling | Connect the Sales fact table to Products and calendar dimensions using active one-to-many relationships and single-direction filtering. |
-| DAX | Calculate revenue, units sold, distinct orders, average order value, product count, and transaction row count. |
 | Data preparation | Aggregate transactions by product and week, fill missing sales periods, rank products by training-period revenue, and filter sparse series. |
 | Exploratory analysis | Analyze weekly sales, Christmas seasonality, revenue by market, monthly performance, product rankings, and price versus volume. |
 | Visualization | Interactive charts, a sortable and searchable product table, CSV export, and actual-versus-predicted sales charts. |
 | Forecasting | Train one stacked LSTM across 20 products using a 12-week history window, calendar features, and product embeddings to predict the next four weeks. |
 | Evaluation | Compare LSTM with AutoARIMA, historical average, last-value, and seasonal-naive forecasts on the same rolling test windows. |
-
-## Power BI sales report
-
-Open [`powerbi/Ecommerce Sales Analytics.pbix`](powerbi/Ecommerce%20Sales%20Analytics.pbix) in Power BI Desktop. The saved report includes its imported sales data and semantic model.
-
-The report analyzes **1,003,213 cleaned transaction lines** and includes:
-
-- Revenue, order count, average order value, and units sold cards.
-- Monthly revenue trends using the calendar dimension.
-- Country revenue analysis and Top 10 product rankings.
-- Product names in chart tooltips.
-- Date-range filtering and interactions between visuals.
-- A transaction-count card for data reconciliation.
-
-![Power BI sales data model](docs/images/powerbi-model.png)
-
-| Full-period metric | Value |
-| --- | ---: |
-| Revenue | £19,642,676.02 |
-| Units sold | 11,187,773 |
-| Orders | 39,516 |
-| Average order value | £497.08 |
-| Products | 4,707 |
-
-Product keys are standardized to uppercase for Power BI's case-insensitive data model. The source contains 4,877 distinct case-sensitive code spellings; normalization resolves 170 repeated keys while preserving every sales transaction.
-
-See [`powerbi/README.md`](powerbi/README.md) for the model, measures, and data refresh instructions. The extracted [`report definitions`](powerbi/report-definition/) make visual configurations, field bindings, sorting, and filters inspectable on GitHub.
+| BI reporting | Use Power BI, Power Query, a fact/dimension model, and DAX to build a sales report with KPI cards, product rankings, and interactive filtering. |
 
 ## Data pipeline
 
 ```text
 Online Retail II (Excel)
-    -> deduplication and transaction validation
-    -> product filtering and validated sales records
-    -> Power BI fact and dimension tables -> DAX metrics -> interactive sales report
-    -> weekly aggregation and exploratory analysis
-    -> time-series windows and LSTM forecasts
-    -> interactive charts and inventory what-if scenarios
+    -> data cleaning and transaction validation
+       |-> exploratory analysis -> sales, market, product, and price visualizations
+       |-> weekly product series -> LSTM forecasts -> forecast charts and scenarios
+       `-> Power BI tables -> DAX metrics -> interactive sales report
 ```
 
 The original run processes **1,067,371 transaction rows**, removes **34,335 exact duplicates**, and retains **1,003,213 rows** after cleaning. Forecasting uses **20 products across 104 complete weeks**. Product selection and scaling use the training period; the most recent **26 weeks** are held out for evaluation.
@@ -65,9 +33,9 @@ The original run processes **1,067,371 transaction rows**, removes **34,335 exac
 ## Technology
 
 - **Analysis and preparation:** Python, pandas, NumPy, regular expressions, OpenPyXL, Parquet.
-- **Business intelligence:** Power BI Desktop, Power Query, DAX, fact and dimension modeling, interactive report filtering.
-- **Visualization:** Power BI charts and KPI cards, Matplotlib for analysis figures, Recharts for web charts.
+- **Visualization:** Matplotlib for analysis figures and Recharts for interactive charts.
 - **Forecasting:** TensorFlow/Keras LSTM; StatsForecast for AutoARIMA and baseline comparisons.
+- **Business intelligence reporting:** Power BI Desktop, Power Query, DAX, fact and dimension modeling, interactive report filtering.
 - **Demo application:** React, Flask REST API, and SQLite for local demo accounts.
 
 ## Dashboard examples
@@ -83,6 +51,12 @@ The original run processes **1,067,371 transaction rows**, removes **34,335 exac
 ![Four-week forecast with observed sales](docs/images/forecast.png)
 
 The web dashboard also includes price-volume exploration and inventory scenarios using simulated stock and elasticity-based demand adjustments.
+
+## Power BI reporting module
+
+The project also includes a [Power BI sales report](powerbi/Ecommerce%20Sales%20Analytics.pbix) built from the cleaned transaction data. It demonstrates Power Query data preparation, fact and dimension modeling, DAX measures, KPI cards, monthly trends, country analysis, Top 10 products, and date-range filtering.
+
+The saved report includes its imported data and semantic model. See the [module documentation](powerbi/README.md), [DAX formulas](powerbi/measures.dax), and [report definitions](powerbi/report-definition/) for the implementation and refresh steps.
 
 ## Run the local demo
 
@@ -122,7 +96,6 @@ Forecast inputs use consecutive weekly history for one of the 20 supported produ
 
 | Path | Purpose |
 | --- | --- |
-| [`powerbi/`](powerbi/) | Saved Power BI report, DAX measures, report definitions, and data preparation script. |
 | [`src/data/adapter.py`](src/data/adapter.py) | Cleaning, validation, product selection, weekly aggregation, and gap filling. |
 | [`src/data/eda_aggregates.py`](src/data/eda_aggregates.py) | Revenue, market, month, and product summaries for the dashboard. |
 | [`src/predictive/features.py`](src/predictive/features.py) | Shared calendar features and model history length. |
@@ -130,6 +103,7 @@ Forecast inputs use consecutive weekly history for one of the 20 supported produ
 | [`src/predictive/baselines.py`](src/predictive/baselines.py) | Baseline forecasting on rolling test windows. |
 | [`frontend/src/pages/Dashboard.jsx`](frontend/src/pages/Dashboard.jsx) | Interactive exploratory analysis. |
 | [`frontend/src/pages/Predict.jsx`](frontend/src/pages/Predict.jsx) | Forecast visualization and scenarios. |
+| [`powerbi/`](powerbi/) | Power BI reporting module, DAX measures, report definitions, and data preparation script. |
 | `src/prescriptive/` | Supporting inventory rules and scenario calculations. |
 | `demo/processed/` | Small aggregate demo datasets, example inputs, and saved model artifacts. |
 | `results/` | Selected analysis figures and recorded model comparison. |

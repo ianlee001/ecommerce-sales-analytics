@@ -4,6 +4,8 @@
 
 The report covers data processing, sales analysis, dimensional modeling, DAX metrics, and interactive visualization across **1,003,213 cleaned transaction lines** from Online Retail II.
 
+This module presents business intelligence reporting within the broader project's data analysis, visualization, and LSTM forecasting workflow.
+
 ## Report features
 
 | Component | Analysis |
@@ -25,6 +27,14 @@ The report covers data processing, sales analysis, dimensional modeling, DAX met
 - **Python/pandas:** transaction cleaning, product-key normalization, dimension preparation, and reconciliation of exported data.
 
 ## Data model
+
+| Full-period metric | Value |
+| --- | ---: |
+| Revenue | £19,642,676.02 |
+| Units sold | 11,187,773 |
+| Orders | 39,516 |
+| Average order value | £497.08 |
+| Products | 4,707 |
 
 ![Sales fact table and related dimensions](../docs/images/powerbi-model.png)
 
